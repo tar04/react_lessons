@@ -1,0 +1,6 @@
+.posts{
+    border: 1px solid red;
+    max-height: 70vh;
+    width: 50%;
+    overflow: scroll;
+}

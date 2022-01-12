@@ -1,0 +1,5 @@
+.comments{
+    border: 1px solid red;
+    overflow: scroll;
+    max-height: 30vh;
+}
