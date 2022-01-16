@@ -1,0 +1,12 @@
+.users{
+    border: 1px solid red;
+    max-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 50%;
+}
+.top-content{
+    display: flex;
+}
+
