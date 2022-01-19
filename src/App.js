@@ -8,7 +8,7 @@ import ChosenPosts from "./components/chosenPosts/chosenPosts";
 function App() {
 
     let [users, setUsers] = useState([]);
-    let [chosenUser, setChosenUser] = useState({});
+    let [chosenUser, setChosenUser] = useState(null);
     let [chosenPosts, setChosenPosts] = useState([]);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ function App() {
             <div className={'top-content'}>
                 <div className={'users'}>
                     {
-                        users.map(value =>
+                         users.map(value =>
                             <UserComponent
                                 key={value.id}
                                 item={value}
@@ -37,7 +37,7 @@ function App() {
                     }
                 </div>
                 {
-                    chosenUser && (<ChosenUser chosenUser={chosenUser} choosePosts={choosePosts}/>)
+                     chosenUser && (<ChosenUser chosenUser={chosenUser} choosePosts={choosePosts}/>)
                 }
             </div>
             <div className={'bottom-content'}>
