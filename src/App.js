@@ -5,6 +5,7 @@ import {useState} from "react";
 function App() {
 
     let [form, setForm] = useState({name: '', username: '', email: ''});
+    let [searchName,setSearchName] = useState();
 
     const send = (e) => {
         e.preventDefault();

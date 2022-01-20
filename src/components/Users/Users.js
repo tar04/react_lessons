@@ -7,7 +7,7 @@ const Users = () => {
     let [users, setUsers] = useState([]);
 
     useEffect(() => {
-        getUsers().then(value => setUsers(value.data))
+        getUsers().then(value => setUsers(value.data.include()))
     }, [])
 
     return (
