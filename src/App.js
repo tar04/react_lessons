@@ -1,5 +1,5 @@
 import './App.css';
-import {useState, useEffect} from "react";
+import {useEffect, useState} from "react";
 
 import Users from "./components/Users/Users";
 import {getUsers} from "./services/UserServices/UserServices";
@@ -16,7 +16,7 @@ function App() {
 
     const send = (e) => {
         e.preventDefault()
-        getUsers().then(value => setUsers(value.data.filter(item => item.name.includes(form.name) && item.username.includes(form.username) && item.email.includes(form.email))))
+        getUsers().then(value => setUsers(value.data.filter(item => item.name.toLowerCase().includes(form.name.toLowerCase()) && item.username.toLowerCase().includes(form.username.toLowerCase()) && item.email.toLowerCase().includes(form.email.toLowerCase()))))
     }
 
     const onChange = (e) => {
