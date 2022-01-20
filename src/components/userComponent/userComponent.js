@@ -8,8 +8,7 @@ const UserComponent = ({item, chooseUser}) => {
             <h4>{item.id} - {item.name}</h4>
             <button onClick={() => {
                 chooseUser(item.id)
-            }}>Get details
-            </button>
+            }}>Get details</button>
         </div>
     );
 };
