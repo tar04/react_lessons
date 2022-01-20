@@ -7,7 +7,7 @@ const UserComponent = ({item, chooseUser}) => {
         <div className={"user"}>
             <h4>{item.id} - {item.name}</h4>
             <button onClick={() => {
-                chooseUser(item.id)
+                chooseUser(item)
             }}>Get details</button>
         </div>
     );

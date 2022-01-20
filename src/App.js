@@ -2,7 +2,7 @@ import './App.css';
 import {useEffect, useState} from "react";
 
 
-import {getUser, getUsers, getPosts} from "./services/userService";
+import {getUsers, getPosts} from "./services/userService";
 import UserComponent from "./components/userComponent/userComponent";
 import ChosenUser from "./components/chosenUser/chosenUser";
 import ChosenPosts from "./components/chosenPosts/chosenPosts";
@@ -17,8 +17,8 @@ function App() {
         getUsers().then(value => setUsers(value.data));
     }, [])
 
-    const chooseUser = (id) => {
-        getUser(id).then(value => setChosenUser(value.data))
+    const chooseUser = (item) => {
+        setChosenUser(item)
     }
 
     const choosePosts = (id) => {

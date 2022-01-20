@@ -8,12 +8,9 @@ let axiosInstance = axios.create({
 const getUsers = () => {
     return axiosInstance.get('/users')
 }
-const getUser = (id) => {
-    return axiosInstance.get('/users/' + id)
-}
 
 const getPosts = (id) => {
     return axiosInstance.get('/users/' + id + '/posts')
 }
 
-export {getUsers, getUser, getPosts}
+export {getUsers, getPosts}
