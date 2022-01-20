@@ -13,7 +13,7 @@ const ChosenUser = ({chosenUser: {id, name, username, email, address:{street,sui
                     city: {city}</h5>
             </div>
             <button onClick={() => {
-                choosePosts(id)
+                choosePosts(id);
             }}>Get posts
             </button>
         </div>

@@ -18,7 +18,8 @@ function App() {
     }, [])
 
     const chooseUser = (item) => {
-        setChosenUser(item)
+        setChosenUser(item);
+        setChosenPosts(null);
     }
 
     const choosePosts = (id) => {
@@ -44,7 +45,7 @@ function App() {
             </div>
             <div className={'bottom-content'}>
                 {
-                    chosenPosts.map((post) =>
+                    chosenPosts && chosenPosts.map((post) =>
                         <ChosenPosts
                             key={post.id}
                             post={post}
