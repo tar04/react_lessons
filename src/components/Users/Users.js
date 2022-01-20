@@ -1,15 +1,10 @@
 import React, {useEffect, useState} from 'react';
+
+
 import User from "../User/User";
 import {getUsers} from "../../services/UserServices/UserServices";
 
-const Users = (searchName) => {
-
-    let [users, setUsers] = useState([]);
-
-    useEffect(() => {
-        getUsers().then(value => setUsers(value.data))
-    }, [])
-
+const Users = ({users}) => {
     return (
         <div>
             {
