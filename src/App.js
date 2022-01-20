@@ -1,6 +1,6 @@
 import './App.css';
 import Users from "./components/Users/Users";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {getUsers} from "./services/UserServices/UserServices";
 
 function App() {
@@ -8,17 +8,10 @@ function App() {
     let [form, setForm] = useState({name: '', username: '', email: ''});
     let [searchName, setSearchName] = useState([]);
 
-    const send = (e) => {
-        e.preventDefault();
-        getUsers().then((value) => {
-            setSearchName(value.data.filter(item => {
-                item.name.includes(form.name)
-            }))
-        })
-    }
 
-    const show = () => {
-        console.log(searchName);
+    const send = (e) => {
+        e.preventDefault()
+        getUsers().then(value => setSearchName(value.data.filter(item => item.name.includes(form.name))))
     }
 
     const onChange = (e) => {
@@ -35,10 +28,9 @@ function App() {
                     <label>Email: <input type="text" name={'email'} value={form.email} onChange={onChange}/></label>
                     <button>Find</button>
                 </form>
-                <button onClick={show}>show</button>
             </div>
             <div>
-                <Users searchName={form.name} searchUsername={form.username} searchEmail={form.email}/>
+                <Users searchName={searchName}/>
             </div>
         </div>
     );
