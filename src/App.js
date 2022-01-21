@@ -1,57 +1,34 @@
+import {useState} from "react";
+
 import './App.css';
-import {useEffect, useState} from "react";
-
-
-import {getUsers, getPosts} from "./services/userService";
-import UserComponent from "./components/userComponent/userComponent";
+import {getPosts} from "./services/userService";
 import ChosenUser from "./components/chosenUser/chosenUser";
-import ChosenPosts from "./components/chosenPosts/chosenPosts";
+import Posts from "./components/Posts/Posts";
+import Users from "./components/Users/Users"
 
 function App() {
 
-    let [users, setUsers] = useState([]);
     let [chosenUser, setChosenUser] = useState(null);
-    let [chosenPosts, setChosenPosts] = useState([]);
-
-    useEffect(() => {
-        getUsers().then(value => setUsers(value.data));
-    }, [])
+    let [posts, setPosts] = useState([]);
 
     const chooseUser = (item) => {
         setChosenUser(item);
-        setChosenPosts(null);
+        setPosts(null);
     }
 
     const choosePosts = (id) => {
-        getPosts(id).then(value => setChosenPosts(value.data))
+        getPosts(id).then(value => setPosts(value.data))
     }
 
     return (
         <>
             <div className={'top-content'}>
-                <div className={'users'}>
-                    {
-                        users.map(value =>
-                            <UserComponent
-                                key={value.id}
-                                item={value}
-                                chooseUser={chooseUser}
-                            />)
-                    }
-                </div>
+                <Users chooseUser={chooseUser}/>
                 {
-                    chosenUser && (<ChosenUser chosenUser={chosenUser} choosePosts={choosePosts}/>)
+                    chosenUser && (<ChosenUser chosenUser={chosenUser} choosePosts={choosePosts} />)
                 }
             </div>
-            <div className={'bottom-content'}>
-                {
-                    chosenPosts && chosenPosts.map((post) =>
-                        <ChosenPosts
-                            key={post.id}
-                            post={post}
-                        />)
-                }
-            </div>
+            <Posts posts={posts}/>
         </>
     );
 }

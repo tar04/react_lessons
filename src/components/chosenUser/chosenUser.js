@@ -1,8 +1,10 @@
 import React from 'react';
+import {useEffect, useState} from "react";
 
 import './chosenUser.css';
 
-const ChosenUser = ({chosenUser: {id, name, username, email, address:{street,suite,city}}, choosePosts}) => {
+const ChosenUser = ({chosenUser: {id, name, username, email, address:{street,suite,city}},choosePosts}) => {
+
     return (
         <div className={'user-details'}>
             <div>
