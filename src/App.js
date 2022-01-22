@@ -17,7 +17,6 @@ function App() {
                 <Form update={setTrigger}/>
                 <UpdateForm/>
             </div>
-
             <Cars trigger={trigger}/>
         </>
     );

@@ -1,21 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useForm} from "react-hook-form";
 
 import {carService} from "../../services/carService";
-import {object} from "joi";
 
 const UpdateForm = () => {
 
     const {register, handleSubmit} = useForm();
-    const [selCar, setSelCar] = useState(null);
 
     function submit(car) {
-       carService.getById(car.id).then(value => setSelCar([...value]));
-
-
         carService.updateById(car.id, car)
-        console.log(car)
-
     }
 
 
