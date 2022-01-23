@@ -13,7 +13,6 @@ const Cars = ({trigger}) => {
 
     const deleteCar = (id) => {
         carService.deleteById(id);
-        trigger++;
     }
 
     return (

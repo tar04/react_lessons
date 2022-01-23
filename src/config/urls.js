@@ -4,4 +4,4 @@ export default baseURL;
 
 export const urls ={
     cars:'/cars'
-}
+};

@@ -1,21 +1,20 @@
 import React from 'react';
 import {useForm} from "react-hook-form";
+import {joiResolver} from "@hookform/resolvers/joi";
 
 import {carService} from "../../services/carService";
-import {joiResolver} from "@hookform/resolvers/joi";
 import {carValidator} from "../../validators/carValidator";
 
 const UpdateForm = () => {
 
-    const {register, handleSubmit,formState: {errors}} = useForm({
+    const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: joiResolver(carValidator),
         mode: "onTouched"
     });
 
     function submit(car) {
-        carService.updateById(car.id, car)
+        carService.updateById(car.id, car);
     }
-
 
     return (
         <div>
