@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Car = ({car:{id,model,price,year},deleteCar}) => {
+const Car = ({car:{id,model,price,year},deleteCar,updateCar}) => {
+    let car={id,model,price,year};
     return (
         <div>
             <hr/>
@@ -9,7 +10,7 @@ const Car = ({car:{id,model,price,year},deleteCar}) => {
             <div>price: {price}</div>
             <div>year: {year}</div>
             <button onClick={()=>{deleteCar(id)}}>Видалити машину</button>
-            <button onClick={}>Оновити машину</button>
+            <button onClick={()=>{updateCar(car)}}>Оновити машину</button>
         </div>
     );
 };

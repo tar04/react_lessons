@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
 
@@ -6,14 +6,24 @@ import {carService} from "../../services/carService";
 import {carValidator} from "../../validators/carValidator";
 
 
-const Form = ({update}) => {
+const Form = ({update, updatedCar: {id, model, price, year}}) => {
 
-    const {register, handleSubmit, formState: {errors}} = useForm({
+    const {register, handleSubmit, formState: {errors}, setValue} = useForm({
         resolver: joiResolver(carValidator),
         mode: "onTouched"
     });
 
+    useEffect(() => {
+        setValue('model', model);
+        setValue('price', price);
+        setValue('year', year);
+    }, [id])
+
     const submit = (car) => {
+        if (id) {
+            carService.updateById(id, car).then(value => update(value));
+            return;
+        }
         carService.create(car).then(value => update(value))
     }
 
@@ -27,7 +37,7 @@ const Form = ({update}) => {
                 {errors.price && <span>{errors.price.message}</span>}
                 <div><label>Year: <input type="text" defaultValue={''} {...register('year')}/></label></div>
                 {errors.year && <span>{errors.year.message}</span>}
-                <button>Додати авто</button>
+                <button>{id ? 'Оновити авто' : 'Додати авто'}</button>
             </form>
         </div>
     );
