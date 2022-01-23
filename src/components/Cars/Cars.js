@@ -3,16 +3,17 @@ import React, {useEffect, useState} from 'react';
 import {carService} from "../../services/carService";
 import Car from "../Car/Car";
 
-const Cars = ({trigger}) => {
+const Cars = ({trigger, update}) => {
 
-    let [cars,setCars] = useState([]);
+    let [cars, setCars] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         carService.getAll().then(value => setCars([...value]))
-    },[trigger])
+    }, [trigger])
 
-    const deleteCar = (id) => {
-        carService.deleteById(id);
+    const deleteCar = async (id) => {
+        await carService.deleteById(id);
+        update(id);
     }
 
     return (

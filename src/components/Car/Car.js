@@ -9,6 +9,7 @@ const Car = ({car:{id,model,price,year},deleteCar}) => {
             <div>price: {price}</div>
             <div>year: {year}</div>
             <button onClick={()=>{deleteCar(id)}}>Видалити машину</button>
+            <button onClick={}>Оновити машину</button>
         </div>
     );
 };

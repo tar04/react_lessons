@@ -8,12 +8,12 @@ import Cars from "./components/Cars/Cars";
 function App() {
 
     const [trigger, setTrigger] = useState(null);
-
+    const [updatedCar, setUpdatedCar] = useState(null);
 
     return (
         <>
             <Form update={setTrigger}/>
-            <Cars trigger={trigger}/>
+            <Cars trigger={trigger} update={setTrigger}/>
         </>
     );
 }
