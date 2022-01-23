@@ -1,9 +1,6 @@
 import Joi from "joi";
 
 export const carValidator = Joi.object({
-    id:Joi.number().min(0).messages({
-        'number.base':'Enter id correctly'
-    }),
     model: Joi.string().regex(new RegExp('^[[a-zA-ZА-яЁёІіЇїЫы]{1,20}$')).required().messages({
         'string.empty':'Model cannot be empty',
         'string.pattern.base':'Use only letters in range 1 to 20'

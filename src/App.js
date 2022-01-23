@@ -3,7 +3,6 @@ import {useState} from "react";
 import './App.css';
 import Form from "./components/Form/Form";
 import Cars from "./components/Cars/Cars";
-import UpdateForm from "./components/UpdateForm/updateForm";
 
 
 function App() {
@@ -13,10 +12,7 @@ function App() {
 
     return (
         <>
-            <div className={'forms'}>
-                <Form update={setTrigger}/>
-                <UpdateForm/>
-            </div>
+            <Form update={setTrigger}/>
             <Cars trigger={trigger}/>
         </>
     );
