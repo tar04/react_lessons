@@ -3,5 +3,7 @@
     flex-direction: column;
     width: 49%;
     max-height: calc(100vh - 130px);
+    overflow: hidden;
+    overflow-y: auto;
     row-gap: 15px;
 }

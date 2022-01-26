@@ -9,6 +9,7 @@ const UserDetails = () => {
     const {state} = useLocation();
 
     const {id} = useParams();
+
     const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -25,7 +26,6 @@ const UserDetails = () => {
                 {user &&
                 (<div>
                         <h4>Id: {user.id}, name: {user.name} ({user.username})</h4>
-                        <p></p>
                         <p>Address: </p>
                         <p>Street: {user.address.street}, suite: {user.address.suite}, city: {user.address.city},
                             zipcode:{user.address.zipcode}</p>
