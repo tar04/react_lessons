@@ -13,3 +13,8 @@
 .user button{
     padding: 10px;
 }
+
+.buttons{
+    display: flex;
+    column-gap: 10px;
+}

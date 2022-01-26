@@ -8,7 +8,11 @@ const User = ({user}) => {
 
     return (
         <div className={'user'}>
-            {id}) {name} (username: {username}) <button><Link to={id.toString()} state={{...user}}>Details about user</Link></button>
+            {id}) {name} (username: {username})
+            <div className={'buttons'}>
+                <button><Link to={id.toString() + '/details'} state={{...user}}>Details about user</Link></button>
+                <button><Link to={id + '/albums'}>Users albums</Link></button>
+            </div>
         </div>
     );
 };

@@ -1,0 +1,11 @@
+.photo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.photo img{
+    width: 450px;
+}
