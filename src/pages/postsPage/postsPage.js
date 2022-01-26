@@ -1,10 +1,16 @@
 import React from 'react';
+import {Outlet} from "react-router-dom";
+
+import Posts from "../../components/Posts/Posts";
 
 const PostsPage = () => {
     return (
-        <div>
-            Posts
-        </div>
+        <>
+            <div className={'main'}>
+                <Posts/>
+                <Outlet/>
+            </div>
+        </>
     );
 };
 

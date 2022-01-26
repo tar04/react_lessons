@@ -1,0 +1,17 @@
+.info{
+    width: 49%;
+}
+
+.post-details{
+    display: flex;
+    flex-direction: column;
+}
+.post-details button{
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.post-details a{
+    text-decoration: none;
+    font-size: 16px;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const UsersPosts = ({post: {id, title, body}}) => {
     return (
         <div>

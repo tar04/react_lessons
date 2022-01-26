@@ -6,7 +6,7 @@ import './Users.css';
 
 const Users = () => {
 
-    let [users, setUsers] = useState([]);
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         userService.getAll().then(value => setUsers(value))
