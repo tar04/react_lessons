@@ -1,0 +1,17 @@
+.info{
+    width: 49%;
+}
+
+.user-details{
+    display: flex;
+    flex-direction: column;
+}
+.user-details button{
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.user-details a{
+    text-decoration: none;
+    font-size: 16px;
+}

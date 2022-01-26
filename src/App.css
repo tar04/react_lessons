@@ -1,0 +1,29 @@
+.menu {
+    background-color: aqua;
+    color: snow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    column-gap: 50px;
+}
+
+.menu a {
+    text-decoration: none;
+    padding: 15px;
+    font-size: 50px;
+    color: #ace5e5;
+}
+
+.menu button {
+    border-radius: 10px;
+    background-color: snow;
+}
+.container{
+    width: 96%;
+    margin: 0 auto;
+}
+.main{
+    display: flex;
+    justify-content: space-between;
+}

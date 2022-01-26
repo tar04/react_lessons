@@ -1,0 +1,15 @@
+.user{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80%;
+    font-size: 18px;
+}
+
+.user a{
+    text-decoration: none;
+    font-size: 16px;
+}
+.user button{
+    padding: 10px;
+}
