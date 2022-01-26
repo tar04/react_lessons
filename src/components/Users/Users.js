@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {userService} from "../../services/userService";
 
+import {userService} from "../../services/userService";
 import User from "../User/User";
 import './Users.css';
 
@@ -10,7 +10,7 @@ const Users = () => {
 
     useEffect(() => {
         userService.getAll().then(value => setUsers(value))
-    }, [])
+    }, []);
 
 
     return (

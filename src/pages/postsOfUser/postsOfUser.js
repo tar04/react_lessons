@@ -17,8 +17,7 @@ const PostsOfUser = () => {
 
     return (
         <div>
-            {usersPosts && (usersPosts.map(post=><UsersPosts key={post.id} post={post}/>)
-            )}
+            {usersPosts && (usersPosts.map(post=><UsersPosts key={post.id} post={post}/>))}
         </div>
     );
 };
