@@ -1,30 +1,33 @@
-import {useReducer} from "react";
+import {useReducer, useState} from "react";
 
 import './App.css';
 
 const reducer = (state, action) => {
+
     switch (action.type) {
         case 'addCats':
-            return {...state, cats: state.cats.push(action.payload)}
+            return {...state, }
     }
 
 }
 
 function App() {
 
-    const [state, dispatch] = useReducer(reducer, {cats: [], dogs: []});
+    const [state, dispatch] = useReducer(reducer, {cats: {}, dogs: {}});
+
 
     const send = (e) => {
         e.preventDefault();
-        dispatch({type: 'addCats', payload:e.target.catsInput.value})
-
+        dispatch({type: 'addCats', payload: e.target.catsInput.value})
     }
+
 
     return (
         <div>
             <div className={'forms'}>
                 <div>
-                    <form name={'catsForm'} onSubmit={send}><label>Add cat:<input type="text" name={'catsInput'}/></label>
+                    <form name={'catsForm'} onSubmit={send}><label>Add cat:<input type="text"
+                                                                                  name={'catsInput'}/></label>
                         <button>Save</button>
                     </form>
                 </div>
@@ -37,7 +40,7 @@ function App() {
             </div>
             <hr/>
             <div className={'animals'}>
-                {state.cats && (<div className={'cats'}>{state.cats.map(value=><div>{value}</div>)}</div>)}
+                {state.cats && (<div className={'cats'}>{JSON.stringify(state.cats)}</div>)}
                 {state.dogs && (<div className={'dogs'}>{state.dogs}</div>)}
             </div>
         </div>
