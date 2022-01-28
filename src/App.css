@@ -4,10 +4,6 @@
     column-gap: 40px;
  }
 
- .form{
-     display: flex;
- }
-
  .animals{
      display: flex;
      justify-content: space-evenly;

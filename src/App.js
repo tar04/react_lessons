@@ -5,7 +5,7 @@ import './App.css';
 const reducer = (state, action) => {
     switch (action.type) {
         case 'addCats':
-            return {...state, cats: state.cats.push(document.forms.catsForm.elements.catsInput.value)}
+            return {...state, cats: [state.cats.push(action.payload)]}
     }
 
 }
@@ -14,19 +14,21 @@ function App() {
 
     const [state, dispatch] = useReducer(reducer, {cats: [], dogs: []});
 
-    const send = () => {
-        dispatch({type: 'addCats'})
+    const send = (e) => {
+        e.preventDefault();
+        dispatch({type: 'addCats', payload:e.target.catsInput.value})
+
     }
 
     return (
         <div>
             <div className={'forms'}>
-                <div className={'form'}>
-                    <form name={'catsForm'}><label>Add cat:<input type="text" name={'catsInput'}/></label>
+                <div>
+                    <form name={'catsForm'} onSubmit={send}><label>Add cat:<input type="text" name={'catsInput'}/></label>
                         <button>Save</button>
                     </form>
                 </div>
-                <div className={'form'}>
+                <div>
                     <form><label>Add dog:<input type="text" name={'addDogs'}/></label>
                         <button>Save</button>
                     </form>
