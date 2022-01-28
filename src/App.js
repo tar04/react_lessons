@@ -5,7 +5,7 @@ import './App.css';
 const reducer = (state, action) => {
     switch (action.type) {
         case 'addCats':
-            return {...state, cats: [state.cats.push(action.payload)]}
+            return {...state, cats: state.cats.push(action.payload)}
     }
 
 }
@@ -37,7 +37,7 @@ function App() {
             </div>
             <hr/>
             <div className={'animals'}>
-                {state.cats && (<div className={'cats'}>{state.cats}</div>)}
+                {state.cats && (<div className={'cats'}>{state.cats.map(value=><div>{value}</div>)}</div>)}
                 {state.dogs && (<div className={'dogs'}>{state.dogs}</div>)}
             </div>
         </div>
