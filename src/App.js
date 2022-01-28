@@ -3,17 +3,16 @@ import {useReducer, useState} from "react";
 import './App.css';
 
 const reducer = (state, action) => {
-
     switch (action.type) {
         case 'addCats':
-            return {...state, }
-    }
+            return {...state, cats: state.cats.push(action.payload)}
 
+    }
 }
 
 function App() {
 
-    const [state, dispatch] = useReducer(reducer, {cats: {}, dogs: {}});
+    const [state, dispatch] = useReducer(reducer, {cats: [], dogs: []});
 
 
     const send = (e) => {
@@ -40,7 +39,7 @@ function App() {
             </div>
             <hr/>
             <div className={'animals'}>
-                {state.cats && (<div className={'cats'}>{JSON.stringify(state.cats)}</div>)}
+                {state.cats && (<div className={'cats'}>{state.cats}</div>)}
                 {state.dogs && (<div className={'dogs'}>{state.dogs}</div>)}
             </div>
         </div>
