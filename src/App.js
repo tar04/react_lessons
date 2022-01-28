@@ -5,7 +5,7 @@ import './App.css';
 const reducer = (state, action) => {
     switch (action.type) {
         case 'addCats':
-            return {...state, cats: state.cats.push(action.payload)}
+            return {state, cats:state.cats.push(action.payload)}
 
     }
 }
@@ -20,13 +20,13 @@ function App() {
         dispatch({type: 'addCats', payload: e.target.catsInput.value})
     }
 
-
+    console.log(typeof (state.cats))
     return (
         <div>
             <div className={'forms'}>
                 <div>
-                    <form name={'catsForm'} onSubmit={send}><label>Add cat:<input type="text"
-                                                                                  name={'catsInput'}/></label>
+                    <form name={'catsForm'} onSubmit={send}><label>Add cat:
+                        <input type="text" name={'catsInput'}/></label>
                         <button>Save</button>
                     </form>
                 </div>
