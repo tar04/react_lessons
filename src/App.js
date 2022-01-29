@@ -13,7 +13,7 @@ function App() {
         <div>
             <CatDogsForms dispatch={dispatch}/>
             <hr/>
-            <CatsDogsOutput state={state}/>
+            <CatsDogsOutput state={state} dispatch={dispatch}/>
         </div>
     );
 }

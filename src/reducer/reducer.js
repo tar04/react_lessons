@@ -7,7 +7,7 @@ export default function reducer(state, action) {
             return {...state, dogs: [...state.dogs, action.payload]};
         }
         case 'deteleCat': {
-            return {...state, cats: [state.cats.filter(cat=>cat.id!=btnId)]};
+            return {...state, cats: [state.cats.filter(cat=>cat.id!==action.payload)]};
         }
     }
 }

@@ -7,9 +7,9 @@ const CatDogsForms = ({dispatch}) => {
         if (!!e.target.catsInput.value) {
             const cat={
                 id:new Date().getTime(),
-                name:
+                name:e.target.catsInput.value
             }
-            dispatch({type: 'addCats', payload: e.target.catsInput.value})
+            dispatch({type: 'addCats', payload: cat})
             e.target.catsInput.value = '';
         } else {
             return;
