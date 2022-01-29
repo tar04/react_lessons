@@ -5,19 +5,16 @@ import './App.css';
 const reducer = (state, action) => {
     switch (action.type) {
         case 'addCats': {
-            // state.cats.push(action.payload)
-            const value=action.payload
-            console.log(state.cats)
-            return {...state,  cats:state.cats.push(value)};
+            return {...state, cats: action.payload};
         }
 
     }
-
+    //setForm({...form, [e.target.name]: e.target.value});
 }
 
 function App() {
 
-    const [state, dispatch] = useReducer(reducer, {cats: [], dogs: []});
+    const [state, dispatch] = useReducer(reducer, {cats: null, dogs: null});
 
 
     const send = (e) => {
@@ -29,21 +26,15 @@ function App() {
         <div>
             <div className={'forms'}>
                 <div>
-                    <form name={'catsForm'} onSubmit={send}><label>Add cat:
+                    <form name={'cats'} onSubmit={send}><label>Add cat:
                         <input type="text" name={'catsInput'}/></label>
                         <button>Save</button>
                     </form>
                 </div>
-                {/*<div>
-                    <form><label>Add dog:<input type="text" name={'addDogs'}/></label>
-                        <button>Save</button>
-                    </form>
-                </div>*/}
             </div>
             <hr/>
             <div className={'animals'}>
-                {<div className={'cats'}>{state.cats.map((value, index) => <div key={index}>{value}</div>)}</div>}
-                {state.dogs && (<div className={'dogs'}>{state.dogs}</div>)}
+                {<div className={'cats'}>{state.cats}</div>}
             </div>
         </div>
     );
