@@ -1,25 +1,30 @@
 import {useReducer, useState} from "react";
 
 import './App.css';
+import {findAllByDisplayValue} from "@testing-library/react";
 
 const reducer = (state, action) => {
     switch (action.type) {
         case 'addCats': {
-            return {...state, cats: action.payload};
+            return {...state, cats: [...state.cats,action.payload]};
         }
 
     }
-    //setForm({...form, [e.target.name]: e.target.value});
 }
 
 function App() {
 
-    const [state, dispatch] = useReducer(reducer, {cats: null, dogs: null});
+    const [state, dispatch] = useReducer(reducer, {cats: [], dogs: []});
 
 
     const send = (e) => {
         e.preventDefault();
-        dispatch({type: 'addCats', payload: e.target.catsInput.value})
+        if (!!e.target.catsInput.value){
+            dispatch({type: 'addCats', payload: e.target.catsInput.value})
+            e.target.catsInput.value='';
+        }else{
+            return;
+        }
     }
 
     return (
@@ -34,7 +39,7 @@ function App() {
             </div>
             <hr/>
             <div className={'animals'}>
-                {<div className={'cats'}>{state.cats}</div>}
+                {<div className={'cats'}>{state.cats.map(value => <div>{value} <button>Delete</button></div>)}</div>}
             </div>
         </div>
     );
