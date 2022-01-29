@@ -6,8 +6,14 @@ export default function reducer(state, action) {
         case 'addDogs': {
             return {...state, dogs: [...state.dogs, action.payload]};
         }
-        case 'deteleCat': {
-            return {...state, cats: [state.cats.filter(cat=>cat.id!==action.payload)]};
+        case 'deleteCat': {
+            return {...state, cats: state.cats.filter(cat => cat.id !== action.payload)};
+        }
+        case 'deleteDog': {
+            return {...state, dogs: state.dogs.filter(dog => dog.id !== action.payload)};
+        }
+        default : {
+            return state;
         }
     }
 }

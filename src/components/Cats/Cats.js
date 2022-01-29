@@ -1,13 +1,12 @@
 import React from 'react';
 
-const Cats = ({state, deleteCat}) => {
+const Cats = ({cats, deleteCat}) => {
 
     return (
-        <div className={'cats'}>
-            {state.cats.map(value =>
+        <div>
+            {cats.map(value =>
                 <div key={value.id}>
-                {value.name}
-                <button onClick={() => {deleteCat(value.id)}}>Delete</button>
+                {value.name}<button onClick={() => {deleteCat(value.id)}}>Delete</button>
             </div>)}
         </div>
     );

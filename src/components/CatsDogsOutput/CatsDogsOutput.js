@@ -1,19 +1,22 @@
 import React from 'react';
-import Cats from "../Cats/Cats";
 
-const CatsDogsOutput = ({state,dispatch}) => {
+import Cats from "../Cats/Cats";
+import Dogs from "../Dogs/Dogs";
+
+const CatsDogsOutput = ({cats, dogs, dispatch}) => {
 
     const deleteCat = (id) => {
-      dispatch({type:'deleteCat',payload: {id}})
+        dispatch({type: 'deleteCat', payload: id})
+    }
+
+    const deleteDog = (id) => {
+        dispatch({type: 'deleteDog', payload: id})
     }
 
     return (
         <div className={'animals'}>
-            <Cats state={state} deleteCat={deleteCat}/>
-
-            {<div className={'dogs'}>
-              {/*{state.dogs.map(value => <div>{value}<button>Delete</button></div>)}*/}
-            </div>}
+            <Cats cats={cats} deleteCat={deleteCat}/>
+            <Dogs dogs={dogs} deleteDog={deleteDog}/>
         </div>
     );
 };

@@ -1,9 +1,9 @@
-import {useReducer, useState} from "react";
+import {useReducer} from "react";
 
 import reducer from "./reducer/reducer";
-import './App.css';
 import CatDogsForms from "./components/CatDogsForms/CatDogsForms";
 import CatsDogsOutput from "./components/CatsDogsOutput/CatsDogsOutput";
+import './App.css';
 
 function App() {
 
@@ -13,7 +13,7 @@ function App() {
         <div>
             <CatDogsForms dispatch={dispatch}/>
             <hr/>
-            <CatsDogsOutput state={state} dispatch={dispatch}/>
+            <CatsDogsOutput cats={state.cats} dogs={state.dogs} dispatch={dispatch}/>
         </div>
     );
 }
