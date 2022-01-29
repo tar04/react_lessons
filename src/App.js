@@ -4,10 +4,14 @@ import './App.css';
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case 'addCats':
-            return {state, cats:state.cats.push(action.payload)}
+        case 'addCats': {
+            // state.cats.push(action.payload)
+            const value=action.payload
+            return [...{}, {cats: action.payload}];
+        }
 
     }
+
 }
 
 function App() {
@@ -20,7 +24,6 @@ function App() {
         dispatch({type: 'addCats', payload: e.target.catsInput.value})
     }
 
-    console.log(typeof (state.cats))
     return (
         <div>
             <div className={'forms'}>
@@ -30,16 +33,15 @@ function App() {
                         <button>Save</button>
                     </form>
                 </div>
-                <div>
+                {/*<div>
                     <form><label>Add dog:<input type="text" name={'addDogs'}/></label>
                         <button>Save</button>
                     </form>
-
-                </div>
+                </div>*/}
             </div>
             <hr/>
             <div className={'animals'}>
-                {state.cats && (<div className={'cats'}>{state.cats}</div>)}
+                {<div className={'cats'}>{state.cats.map((value, index) => <div key={index}>{value}</div>)}</div>}
                 {state.dogs && (<div className={'dogs'}>{state.dogs}</div>)}
             </div>
         </div>
