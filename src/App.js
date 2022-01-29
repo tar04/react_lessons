@@ -7,7 +7,8 @@ const reducer = (state, action) => {
         case 'addCats': {
             // state.cats.push(action.payload)
             const value=action.payload
-            return [...{}, {cats: action.payload}];
+            console.log(state.cats)
+            return {...state,  cats:state.cats.push(value)};
         }
 
     }
