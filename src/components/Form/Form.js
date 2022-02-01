@@ -4,6 +4,7 @@ import {useForm} from "react-hook-form";
 import './Form.css'
 import {useDispatch} from "react-redux";
 import {createCar} from "../../store";
+import {carService} from "../../services/carService";
 
 const Form = () => {
 
@@ -12,8 +13,13 @@ const Form = () => {
     const dispatch = useDispatch();
 
     const submit = (data) => {
+        if (id) {
+            carService.updateById(id, car).then(value => update(value));
+            return;
+        }
         dispatch(createCar({data}));
         reset();
+
     }
 
     return (
