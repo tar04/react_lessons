@@ -12,7 +12,7 @@ const Form = () => {
     const dispatch = useDispatch();
 
     const submit = (data) => {
-        dispatch(createCar({data}))
+        dispatch(createCar({data}));
         reset();
     }
 
