@@ -19,7 +19,7 @@ export const createCar = createAsyncThunk(
             const newCar=await carService.create(data);
             dispatch(addCar({newCar}));
         } catch (e) {
-            return rejectWithValue(e);
+            console.log(e);
         }
     }
 )

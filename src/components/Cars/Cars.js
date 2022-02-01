@@ -8,21 +8,21 @@ import './Cars.css';
 
 const Cars = () => {
 
-    const {cars,status,error} = useSelector(state => state['carReducer']);
+    const {cars, status, error} = useSelector(state => state['carReducer']);
 
     const dispatch = useDispatch();
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getAllCars());
-    },[])
+    }, [])
 
     return (
         <div>
             <Form/>
-            {status==='pending' && <h2>Loading...</h2>}
-            {error&& <h2>{error}</h2>}
+            {status === 'pending' && <h2>Loading...</h2>}
+            {error && <h2>{error}</h2>}
             <div className={'cars'}>
-                {cars.map(car=><Car key={car.id} car={car}/>)}
+                {cars.map(car => <Car key={car.id} car={car}/>)}
             </div>
         </div>
     );
