@@ -1,0 +1,31 @@
+.content {
+    background: #360528;
+    height: calc(100vh - 190px);
+    color: snow;
+    padding: 20px;
+}
+
+.menu {
+    background: black;
+    color: snow;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 50px;
+}
+
+.btn {
+    font-size: 20px;
+    color: #fff;
+    background: linear-gradient(to left, #c31432, #240b36, #c31432);
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-size: 200%;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-position: right;
+}
