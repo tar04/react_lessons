@@ -12,7 +12,7 @@ const Users = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getAllUsers())
+        dispatch(getAllUsers());
     }, [])
 
     return (

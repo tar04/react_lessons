@@ -1,6 +1,7 @@
 import React from 'react';
 import {useDispatch} from "react-redux";
-import {deleteCarById, updateCar, updateCarById} from "../../store";
+
+import {deleteCarById, updateCar} from "../../store";
 
 const Car = ({car}) => {
 

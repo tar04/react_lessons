@@ -12,12 +12,12 @@ const Posts = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getAllPosts())
+        dispatch(getAllPosts());
     }, [])
 
     return (
         <div className={'posts'}>
-            {status === 'prending' && <h2>Loading...</h2>}
+            {status === 'pending' && <h2>Loading...</h2>}
             {error && <h2>{error}</h2>}
             {posts.map(post => <Post key={post.id} post={post}/>)}
         </div>

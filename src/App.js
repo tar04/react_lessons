@@ -1,6 +1,5 @@
 import {Link, Routes, Route} from "react-router-dom";
 
-
 import './App.css';
 import {CarsPage, CommentsPage, PostsPage, UsersPage} from "./pages";
 

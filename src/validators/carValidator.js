@@ -1,7 +1,7 @@
 import Joi from "joi";
 
 export const carValidator = Joi.object({
-    model: Joi.string().regex(new RegExp('^[{a-zA-ZА-яЁёЫыІіЇї]{1,20}$')).required().messages({
+    model: Joi.string().regex(new RegExp('^[a-zA-ZА-яЁёЫыІіЇї]{1,20}$')).required().messages({
         'string.empty':'Введіть модель авто',
         'string.pattern.base':'Модель від 1 до 20 символів без цифр'
     }),
