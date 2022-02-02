@@ -14,9 +14,9 @@ export const getAllCars = createAsyncThunk(
 
 export const createCar = createAsyncThunk(
     'carSlice/createCar',
-    async ({data},{dispatch}) => {
+    async ({data}, {dispatch}) => {
         try {
-            const newCar=await carService.create(data);
+            const newCar = await carService.create(data);
             dispatch(addCar({newCar}));
         } catch (e) {
             console.log(e);
@@ -26,7 +26,7 @@ export const createCar = createAsyncThunk(
 
 export const deleteCarById = createAsyncThunk(
     'carSlice/deleteCarById',
-    async ({id},{dispatch}) => {
+    async ({id}, {dispatch}) => {
         try {
             await carService.deleteById(id);
             dispatch(deleteCar({id}));
@@ -38,10 +38,12 @@ export const deleteCarById = createAsyncThunk(
 
 export const updateCarById = createAsyncThunk(
     'carSlice/updateCarById',
-    async ({data.id,data},{dispatch}) => {
+    async ({id, data}, {dispatch}) => {
         try {
-            await carService.update(data.id,data);
-            dispatch();
+            const car=await carService.update(id, data);
+            console.log(car)
+            return car;
+           // dispatch(getAllCars());
         } catch (e) {
             console.log(e);
         }
@@ -53,17 +55,18 @@ const carSlice = createSlice({
     initialState: {
         cars: [],
         status: null,
-        error: null
+        error: null,
+        carForUpdate: {}
     },
     reducers: {
         addCar: (state, action) => {
             state.cars.push(action.payload.newCar);
         },
         deleteCar: (state, action) => {
-            state.cars=state.cars.filter(car=>car.id!==action.payload.id)
+            state.cars = state.cars.filter(car => car.id !== action.payload.id)
         },
         updateCar: (state, action) => {
-
+            state.carForUpdate = action.payload.car;
         }
     },
     extraReducers: {
@@ -79,10 +82,13 @@ const carSlice = createSlice({
             state.status = 'rejected';
             state.error = action.payload;
         },
+        [updateCarById.fulfilled]: (state, action) => {
+            state.cars = {...state.cars,[state.cars]:action.payload.car}
+        }
     }
 })
 
 const carReducer = carSlice.reducer;
 
-export const {addCar, deleteCar,updateCar} = carSlice.actions;
+export const {addCar, deleteCar, updateCar} = carSlice.actions;
 export default carReducer;
