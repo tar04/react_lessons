@@ -3,7 +3,7 @@ import {useForm} from "react-hook-form";
 
 import './Form.css'
 import {useDispatch, useSelector} from "react-redux";
-import {createCar} from "../../store";
+import {createCar, updateCarById} from "../../store";
 import {carService} from "../../services/carService";
 
 const Form = () => {
@@ -12,11 +12,11 @@ const Form = () => {
 
     const dispatch = useDispatch();
 
-    const {updated} = useSelector(state => state['carReducer']);
+    //const {updated} = useSelector(state => state['carReducer']);
 
     const submit = (data) => {
-        if () {
-            carService.updateById(id, car).then(value => update(value));
+        if (data.id) {
+            updateCarById({data.id, data});
             return;
         }
         dispatch(createCar({data}));

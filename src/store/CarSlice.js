@@ -38,9 +38,9 @@ export const deleteCarById = createAsyncThunk(
 
 export const updateCarById = createAsyncThunk(
     'carSlice/updateCarById',
-    async ({car},{dispatch}) => {
+    async ({data.id,data},{dispatch}) => {
         try {
-            await carService.update(car);
+            await carService.update(data.id,data);
             dispatch();
         } catch (e) {
             console.log(e);
