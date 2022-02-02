@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Comment = () => {
+const Comment = ({comment: {id, name, email, body}}) => {
     return (
         <div>
-            Comment
+            <h2>{id}) {name} ({email}) writes</h2>
+            <p>{body}</p>
+            <hr/>
         </div>
     );
 };

@@ -1,0 +1,5 @@
+.posts{
+    max-height: 450px;
+    overflow: hidden;
+    overflow-y: auto;
+}
