@@ -1,19 +1,27 @@
 import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
+import {useDispatch, useSelector} from "react-redux";
+import {joiResolver} from "@hookform/resolvers/joi";
 
 import './Form.css'
-import {useDispatch, useSelector} from "react-redux";
 import {createCar, updateCarById} from "../../store";
+import {carValidator} from "../../validators/carValidator";
 
 const Form = () => {
 
-    const {register, handleSubmit, reset,setValue} = useForm();
+    const {
+        register,
+        handleSubmit,
+        reset,
+        setValue,
+        formState: {errors}
+    } = useForm({resolver: joiResolver(carValidator),mode:"onTouched"});
 
     const dispatch = useDispatch();
 
     const {carForUpdate} = useSelector(state => state['carReducer']);
 
-    const {id,model,price,year}=carForUpdate;
+    const {id, model, price, year} = carForUpdate;
 
     useEffect(() => {
         setValue('model', model);
@@ -23,7 +31,7 @@ const Form = () => {
 
     const submit = (data) => {
         if (id) {
-            dispatch(updateCarById({id,data}));
+            dispatch(updateCarById({id, data}));
             reset();
             return;
         }
@@ -35,8 +43,11 @@ const Form = () => {
     return (
         <form onSubmit={handleSubmit(submit)}>
             <label>Model <input type="text" {...register('model')}/></label>
+            {errors.model  && <p>{errors.model.message}</p>}
             <label>Price <input type="text" {...register('price')}/></label>
+            {errors.price  && <p>{errors.price.message}</p>}
             <label>Year <input type="text" {...register('year')}/></label>
+            {errors.year  && <p>{errors.year.message}</p>}
             <button>Send</button>
         </form>
     );
