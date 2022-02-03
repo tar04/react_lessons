@@ -41,8 +41,7 @@ export const updateCarById = createAsyncThunk(
     'carSlice/updateCarById',
     async ({id, data}, {dispatch}) => {
         try {
-            await carService.update(id, data);
-            dispatch(getAllCars());
+            return await carService.update(id, data);
         } catch (e) {
             console.log(e);
         }
@@ -80,6 +79,10 @@ const carSlice = createSlice({
         [getAllCars.rejected]: (state, action) => {
             state.status = 'rejected';
             state.error = action.payload;
+        },
+        [updateCarById.fulfilled]: (state, action) => {
+            let index = state.cars.findIndex(car => car.id === action.payload.id)
+            state.cars.splice(index, 1, action.payload)
         }
     }
 })
