@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {Form} from "../Form/Form";
 import {getAllCars} from "../../store";
 import {Car} from "../Car/Car";
-import './Cars.css';
+import "./Cars.css";
 
 const Cars = () => {
 

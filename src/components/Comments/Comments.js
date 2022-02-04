@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {Comment} from "../Commment/Comment";
 import {getAllComments} from "../../store";
-import './Comments.css';
+import "./Comments.css";
 
 const Comments = () => {
 

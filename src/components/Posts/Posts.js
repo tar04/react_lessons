@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {Post} from "../Post/Post";
 import {getAllPosts} from "../../store";
-import './Posts.css';
+import "./Posts.css";
 
 const Posts = () => {
 

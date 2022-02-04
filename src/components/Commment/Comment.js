@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const Comment = ({comment: {id, name, email, body}}) => {
     return (
