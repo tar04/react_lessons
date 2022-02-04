@@ -1,8 +1,7 @@
-import React from 'react';
 import {useDispatch} from "react-redux";
 
 import {changeCheck, deleteTask} from "../../store";
-import './Task.css';
+import "./Task.css";
 
 const Task = ({task}) => {
 

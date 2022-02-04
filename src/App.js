@@ -1,6 +1,6 @@
 import {Form, Tasks} from "./components";
 import CompletedTasks from "./components/CompletedTasks/CompletedTasks";
-import './App.css';
+import "./App.css";
 
 function App() {
     return (
