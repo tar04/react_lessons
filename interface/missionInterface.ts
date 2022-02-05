@@ -22,7 +22,7 @@ interface IRocket {
 }
 
 interface IFirstStage {
-    cores: [ICores]
+    cores: ICores[]
 }
 
 interface ICores {
@@ -36,7 +36,7 @@ interface ICore{
 }
 
 interface ISecondStage{
-    payloads: [IPayloads];
+    payloads: IPayloads[];
 }
 
 interface IPayloads{
