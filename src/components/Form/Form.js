@@ -21,13 +21,14 @@ const Form = () => {
 
     const {carForUpdate} = useSelector(state => state['carReducer']);
 
-    const {id, model, price, year} = carForUpdate;
+    let {id, model, price, year} = carForUpdate;
 
     useEffect(() => {
         setValue('model', model);
         setValue('price', price);
         setValue('year', year);
     }, [id])
+
 
     const submit = (data) => {
         if (id) {

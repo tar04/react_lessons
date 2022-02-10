@@ -83,6 +83,7 @@ const carSlice = createSlice({
         [updateCarById.fulfilled]: (state, action) => {
             let index = state.cars.findIndex(car => car.id === action.payload.id)
             state.cars.splice(index, 1, action.payload)
+            state.carForUpdate={};
         }
     }
 })
